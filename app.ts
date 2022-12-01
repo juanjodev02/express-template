@@ -1,6 +1,6 @@
 import { Server } from './classes/server'
 import { ConfigService } from './utils/config'
-import { MainRouter } from './routes'
+import { MainRouter } from './routes/mainRouter'
 
 const main = async (): Promise<void> => {
   const configService = new ConfigService()
@@ -12,7 +12,9 @@ const main = async (): Promise<void> => {
     routers: [
       mainRouter
     ],
-    loggerLevel: 'dev'
+    loggerLevel: 'dev',
+    prefix: '/api/dwolla-integrator',
+    swaggerEnabled: true
   })
 
   server.listen()
